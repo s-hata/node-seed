@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "isolatedModules": true,
+    "declaration": true,
+    "typeRoots": ["./dist/typings"]
+  },
+  "includes": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
