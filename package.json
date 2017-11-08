@@ -10,7 +10,7 @@
   "dependencies": {
     "aws-sdk": "^2.140.0",
     "cognito-express": "^2.0.3",
-    "config": "^1.27.0",
+    "config": "^1.28.0",
     "cors": "^2.8.4",
     "debug": "^3.1.0",
     "express": "^4.16.2",

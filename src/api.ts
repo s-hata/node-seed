@@ -4,6 +4,8 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 
+import * as config from 'config';
+import * as authenticator from 'helpers/middleware/authenticator';
 import * as indexRouter from 'routes/index';
 
 class Api {
@@ -27,7 +29,7 @@ class Api {
       next();
     });
     this.express.use(cors());
-    this.express.use(logger('dev'));
+    this.express.use(authenticator());
   }
 
   private routes(): void {

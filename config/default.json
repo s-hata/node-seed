@@ -1,0 +1,9 @@
+{
+  "cognito": {
+    "region": "ap-northeast-1",
+    "cognitoUserPoolId": "",
+    "tokenUse": "access",
+    "tokenExpiration": 3600000
+  }
+}
+
