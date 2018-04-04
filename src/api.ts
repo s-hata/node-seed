@@ -8,6 +8,13 @@ import * as config from 'config';
 import * as authenticator from 'helpers/middleware/authenticator';
 import * as indexRouter from 'routes/index';
 
+
+const corsOptions = {
+  origin: '*',
+  allowedHeaders: ['X-Requested-With', 'Content-Type', 'access-token'],
+  methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS']
+};
+
 class Api {
 
   public express: express.Application;
@@ -22,13 +29,8 @@ class Api {
     this.express.use(logger('dev'));
     this.express.use(bodyParser.json());
     this.express.use(bodyParser.urlencoded({ extended: false }));
-    this.express.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
-      res.header('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE,OPTIONS');
-      next();
-    });
-    this.express.use(cors());
+    this.express.options('*', cors(corsOptions));
+    this.express.use(cors(corsOptions));
     this.express.use(authenticator());
   }
 

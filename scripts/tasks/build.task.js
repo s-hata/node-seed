@@ -7,7 +7,7 @@ const path       = require('path');
 const merge      = require('merge2');
 const prj        = require('scripts/project');
 
-gulp.task('lint', function() {
+gulp.task('lint', () => {
   return gulp.src(path.join(prj.src.src, '**/*.ts'))
     .pipe(tslint({ configuration: './tslint.json', formatter: 'stylish' }))
     .pipe(tslint.report());
